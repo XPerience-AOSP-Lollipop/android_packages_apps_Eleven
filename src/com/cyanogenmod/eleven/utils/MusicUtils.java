@@ -1,6 +1,7 @@
 /*
  * Copyright (C) 2012 Andrew Neal
  * Copyright (C) 2014 The CyanogenMod Project
+ * Copyright (C) 2015 The MoKee OpenSource Project
  * Licensed under the Apache License, Version 2.0
  * (the "License"); you may not use this file except in compliance with the
  * License. You may obtain a copy of the License at
@@ -1737,5 +1738,27 @@ public final class MusicUtils {
         }
 
         return str.toString();
+    }
+
+    /**
+     * Sleep mode status get/set
+     */
+    public static boolean getSleepMode() {
+        if (mService != null) {
+            try {
+                return mService.getSleepMode();
+            } catch (final RemoteException ignored) {
+            }
+        }
+        return false;
+    }
+    
+    public static void setSleepMode(boolean enable) {
+        if (mService != null) {
+            try {
+                mService.setSleepMode(enable);
+            } catch (final RemoteException ignored) {
+            }
+        }
     }
 }
