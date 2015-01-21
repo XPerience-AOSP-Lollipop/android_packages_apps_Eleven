@@ -159,7 +159,7 @@ public class HomeActivity extends SlidingPanelActivity {
     @Override
     public void onMetaChanged() {
         super.onMetaChanged();
-        updateStatusBarColor();
+        updateStatusBarColorAndNavigationBarColor();
     }
 
     @Override
@@ -169,13 +169,13 @@ public class HomeActivity extends SlidingPanelActivity {
         boolean isInBrowser = getCurrentPanel() == Panel.Browse && slideOffset < 0.7f;
         if (isInBrowser != mBrowsePanelActive) {
             mBrowsePanelActive = isInBrowser;
-            updateStatusBarColor();
+            updateStatusBarColorAndNavigationBarColor();
         }
     }
 
-    private void updateStatusBarColor() {
+    private void updateStatusBarColorAndNavigationBarColor();
         if (mBrowsePanelActive || MusicUtils.getCurrentAlbumId() < 0) {
-            updateStatusBarColor(getResources().getColor(R.color.primary_dark));
+            updateNavigationBarColor(getResources().getColor(R.color.primary_dark));
         } else {
             new AsyncTask<Void, Void, Integer>() {
                 @Override
@@ -192,6 +192,7 @@ public class HomeActivity extends SlidingPanelActivity {
                         color = getResources().getColor(R.color.primary_dark);
                     }
                     updateStatusBarColor(color);
+		    updateNavigationBarColor(color);
                 }
             }.execute();
         }
@@ -204,6 +205,15 @@ public class HomeActivity extends SlidingPanelActivity {
         animator.setEvaluator(new ArgbEvaluator());
         animator.setDuration(300);
         animator.start();
+    }
+
+    private void updateNavigationBarColor(int color) {
+        final Window window = getWindow();
+	ObjectAnimator animator = ObjectAnimator.ofInt(window,
+	"navigationBarColor", window.getNavigationBarColor(), color);
+	animator.setEvaluator(new ArgbEvaluator());
+ 	animator.setDuration(300);
+	animator.start();
     }
 
     private boolean parseIntentForFragment(Intent intent) {
