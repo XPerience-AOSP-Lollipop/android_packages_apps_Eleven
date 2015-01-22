@@ -174,7 +174,7 @@ public class HomeActivity extends SlidingPanelActivity {
         }
     }
 
-    private void updateStatusBarColorAndNavigationBarColor();
+    private void updateStatusBarColorAndNavigationBarColor(){
         if (mBrowsePanelActive || MusicUtils.getCurrentAlbumId() < 0) {
             updateNavigationBarColor(getResources().getColor(R.color.primary_dark));
         } else {
