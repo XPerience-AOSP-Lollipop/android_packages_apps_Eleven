@@ -50,5 +50,6 @@ interface IElevenService
     int getAudioSessionId();
     boolean getSleepMode();
     void setSleepMode(boolean enable);
+    void setShakeToPlayEnabled(boolean enabled);
 }
 
