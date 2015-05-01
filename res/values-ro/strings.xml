@@ -49,7 +49,10 @@
   <string name="google_search">Căutare pe Google</string>
   <string name="context_menu_play_selection">Redare</string>
   <string name="context_menu_rename_playlist">Redenumire</string>
+  <string name="context_menu_use_as_ringtone">Folosește ca ton de apel</string>
+  <string name="accessibility_pause">Pauză</string>
   <string name="set_as_ringtone">\'<xliff:g id="name" example="Alarm Bell">%s</xliff:g>\' este ton de apel</string>
+  <string name="settings_data_category">Date</string>
   <string name="empty_search">Nu am găsit rezultate la căutare</string>
   <string name="header_unknown_year">An necunoscut</string>
   <string name="header_less_than_30s">Mai puţin de 30 de secunde</string>
@@ -65,4 +68,6 @@
   <string name="header_1_song">1 melodie</string>
   <string name="header_2_to_4_songs">2 - 4 melodii</string>
   <string name="header_5_to_9_songs">5 - 9 melodii</string>
+  <string name="header_10_plus_songs">10+ melodii</string>
+  <string name="header_5_plus_albums">5+ albume</string>
 </resources>

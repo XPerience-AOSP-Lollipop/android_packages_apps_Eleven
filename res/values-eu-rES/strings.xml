@@ -17,7 +17,5 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="app_name">Musiqi</string>
-  <string name="page_recent">Ən son</string>
-  <string name="settings_data_category">Verilənlər</string>
+  <string name="google_search">Google bilaketa</string>
 </resources>

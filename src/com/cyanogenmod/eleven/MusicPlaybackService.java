@@ -530,6 +530,11 @@ public class MusicPlaybackService extends Service {
      */
     private ShakeDetector mShakeDetector;
 
+    /**
+     * Switch for displaying album art on lockscreen
+     */
+    private boolean mShowAlbumArtOnLockscreen;
+
     private ShakeDetector.Listener mShakeDetectorListener=new ShakeDetector.Listener() {
 
         @Override
@@ -1539,7 +1544,8 @@ public class MusicPlaybackService extends Service {
                     .putLong(MediaMetadata.METADATA_KEY_TRACK_NUMBER, getQueuePosition() + 1)
                     .putLong(MediaMetadata.METADATA_KEY_NUM_TRACKS, getQueue().length)
                     .putString(MediaMetadata.METADATA_KEY_GENRE, getGenreName())
-                    .putBitmap(MediaMetadata.METADATA_KEY_ALBUM_ART, albumArt)
+                    .putBitmap(MediaMetadata.METADATA_KEY_ALBUM_ART,
+                            mShowAlbumArtOnLockscreen ? albumArt : null)
                     .build());
 
             mSession.setPlaybackState(new PlaybackState.Builder()
@@ -2416,6 +2422,11 @@ public class MusicPlaybackService extends Service {
             return;
         }
 
+        final Intent intent = new Intent(AudioEffect.ACTION_OPEN_AUDIO_EFFECT_CONTROL_SESSION);
+        intent.putExtra(AudioEffect.EXTRA_AUDIO_SESSION, getAudioSessionId());
+        intent.putExtra(AudioEffect.EXTRA_PACKAGE_NAME, getPackageName());
+        sendBroadcast(intent);
+
         mAudioManager.registerMediaButtonEventReceiver(new ComponentName(getPackageName(),
                 MediaButtonIntentReceiver.class.getName()));
         mSession.setActive(true);
@@ -2454,6 +2465,12 @@ public class MusicPlaybackService extends Service {
         synchronized (this) {
             mPlayerHandler.removeMessages(FADEUP);
             if (mIsSupposedToBePlaying) {
+                final Intent intent = new Intent(
+                        AudioEffect.ACTION_CLOSE_AUDIO_EFFECT_CONTROL_SESSION);
+                intent.putExtra(AudioEffect.EXTRA_AUDIO_SESSION, getAudioSessionId());
+                intent.putExtra(AudioEffect.EXTRA_PACKAGE_NAME, getPackageName());
+                sendBroadcast(intent);
+
                 mPlayer.pause();
                 setIsSupposedToBePlaying(false, true);
                 stopShakeDetector(false);
@@ -2792,6 +2809,14 @@ public class MusicPlaybackService extends Service {
         else {
             stopShakeDetector(true);
         }
+    }
+
+    /**
+     * Called to set visibility of album art on lockscreen
+     */
+    public void setLockscreenAlbumArt(boolean enabled) {
+        mShowAlbumArtOnLockscreen = enabled;
+        notifyChange(META_CHANGED);
     }
 
     /**
@@ -3166,10 +3191,6 @@ public class MusicPlaybackService extends Service {
             }
             player.setOnCompletionListener(this);
             player.setOnErrorListener(this);
-            final Intent intent = new Intent(AudioEffect.ACTION_OPEN_AUDIO_EFFECT_CONTROL_SESSION);
-            intent.putExtra(AudioEffect.EXTRA_AUDIO_SESSION, getAudioSessionId());
-            intent.putExtra(AudioEffect.EXTRA_PACKAGE_NAME, mService.get().getPackageName());
-            mService.get().sendBroadcast(intent);
             return true;
         }
 
@@ -3747,6 +3768,14 @@ public class MusicPlaybackService extends Service {
         @Override
         public void setShakeToPlayEnabled(boolean enabled) {
             mService.get().setShakeToPlayEnabled(enabled);
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public void setLockscreenAlbumArt(boolean enabled) {
+            mService.get().setLockscreenAlbumArt(enabled);
         }
 
     }

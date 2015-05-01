@@ -44,7 +44,7 @@
   <string name="menu_clear_list">Limpiar lista</string>
   <string name="menu_clear_recents">Limpiar recientes</string>
   <string name="menu_clear_queue">Limpiar cola</string>
-  <string name="menu_save_queue">Guardar cola</string>
+  <string name="menu_save_queue">Guardar cola en la lista</string>
   <string name="menu_equalizer">Ecualizador</string>
   <string name="add_to_playlist">Añadir a la lista</string>
   <string name="add_to_queue">Añadir a la cola</string>
@@ -118,7 +118,10 @@
   <string name="settings_show_music_visualization_title">Mostrar visualización musical</string>
   <string name="settings_show_lyrics_title">Mostrar las letras de las canciones</string>
   <string name="settings_show_lyrics_summary">Para canciones que tienen un archivo srt</string>
+  <string name="settings_shake_to_play">Agitar para reproducir</string>
   <string name="settings_shake_to_play_summary">Agitar el dispositivo para reproducir la siguiente canción</string>
+  <string name="settings_lockscreen_album_art">Portada en pantalla de bloqueo</string>
+  <string name="settings_lockscreen_album_art_summary">Reemplazar la pantalla de bloqueo con la imagen del álbum</string>
   <string name="app_widget_small">Música: 4 \u00d7 1</string>
   <string name="app_widget_large">Música: 4 \u00d7 2</string>
   <string name="app_widget_large_alt">Música: 4 \u00d7 2 (alternativo)</string>

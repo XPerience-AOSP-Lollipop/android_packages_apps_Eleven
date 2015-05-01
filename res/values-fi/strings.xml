@@ -44,7 +44,7 @@
   <string name="menu_clear_list">Tyhjennä lista</string>
   <string name="menu_clear_recents">Tyhjennä äskettäin kuunnellut</string>
   <string name="menu_clear_queue">Tyhjennä jono</string>
-  <string name="menu_save_queue">Tallenna jono</string>
+  <string name="menu_save_queue">Tallenna jono soittolistalle</string>
   <string name="menu_equalizer">Taajuuskorjain</string>
   <string name="add_to_playlist">Lisää soittolistalle</string>
   <string name="add_to_queue">Lisää jonoon</string>
@@ -118,7 +118,10 @@
   <string name="settings_show_music_visualization_title">Näytä visualisointi</string>
   <string name="settings_show_lyrics_title">Näytä sanoitukset</string>
   <string name="settings_show_lyrics_summary">Jos kappaleella on srt-tiedosto</string>
+  <string name="settings_shake_to_play">Toista ravistamalla</string>
   <string name="settings_shake_to_play_summary">Ravista laitettasi toistaaksesi seuraavan kappaleen</string>
+  <string name="settings_lockscreen_album_art">Lukitusnäytön albumikuvitus</string>
+  <string name="settings_lockscreen_album_art_summary">Korvaa lukitusnäytön tausta albumin kuvituksella</string>
   <string name="app_widget_small">Musiikki: 4 \u00d7 1</string>
   <string name="app_widget_large">Musiikki: 4 \u00d7 2</string>
   <string name="app_widget_large_alt">Musiikki: 4 \u00d7 2 (vaihtoehtoinen)</string>

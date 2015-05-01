@@ -51,5 +51,6 @@ interface IElevenService
     boolean getSleepMode();
     void setSleepMode(boolean enable);
     void setShakeToPlayEnabled(boolean enabled);
+    void setLockscreenAlbumArt(boolean enabled);
 }
 

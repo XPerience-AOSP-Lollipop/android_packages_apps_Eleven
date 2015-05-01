@@ -44,7 +44,6 @@
   <string name="menu_clear_list">Limpar lista</string>
   <string name="menu_clear_recents">Limpar recentes</string>
   <string name="menu_clear_queue">Limpar fila</string>
-  <string name="menu_save_queue">Guardar fila</string>
   <string name="menu_equalizer">Equalizador</string>
   <string name="add_to_playlist">Adicionar à lista de reprodução</string>
   <string name="add_to_queue">Adicionar à fila</string>
@@ -118,7 +117,10 @@
   <string name="settings_show_music_visualization_title">Mostrar visualização da música</string>
   <string name="settings_show_lyrics_title">Mostrar letras das músicas</string>
   <string name="settings_show_lyrics_summary">Para músicas que têm um ficheiro srt</string>
+  <string name="settings_shake_to_play">Agitar para reproduzir</string>
   <string name="settings_shake_to_play_summary">Agite o seu dispositivo para reproduzir a próxima música</string>
+  <string name="settings_lockscreen_album_art">Arte do álbum no ecrã de bloqueio</string>
+  <string name="settings_lockscreen_album_art_summary">Substituir a imagem de fundo do ecrã de bloqueio pela arte do álbum</string>
   <string name="app_widget_small">Música: 4 \u00d7 1</string>
   <string name="app_widget_large">Música: 4 \u00d7 2</string>
   <string name="app_widget_large_alt">Música: 4 \u00d7 2 (alternativo)</string>

@@ -44,7 +44,7 @@
   <string name="menu_clear_list">清除列表</string>
   <string name="menu_clear_recents">清除最近播放列表</string>
   <string name="menu_clear_queue">清除队列</string>
-  <string name="menu_save_queue">保存队列</string>
+  <string name="menu_save_queue">保存队列到播放列表</string>
   <string name="menu_equalizer">均衡器</string>
   <string name="add_to_playlist">添加到播放列表</string>
   <string name="add_to_queue">添加到队列</string>
@@ -120,6 +120,8 @@
   <string name="settings_show_lyrics_summary">有一个 srt 文件与歌曲匹配</string>
   <string name="settings_shake_to_play">摇动播放</string>
   <string name="settings_shake_to_play_summary">摇动您的设备以播放下一首歌</string>
+  <string name="settings_lockscreen_album_art">锁屏唱片封面</string>
+  <string name="settings_lockscreen_album_art_summary">将锁屏背景换为唱片集封面</string>
   <string name="app_widget_small">音乐：4 \u00d7 1</string>
   <string name="app_widget_large">音乐：4 \u00d7 1</string>
   <string name="app_widget_large_alt">音乐： 4 \u00d7 2 (交替)</string>

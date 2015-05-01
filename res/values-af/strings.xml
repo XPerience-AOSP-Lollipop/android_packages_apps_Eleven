@@ -44,7 +44,6 @@
   <string name="menu_clear_list">Verwyder alle items</string>
   <string name="menu_clear_recents">Verwyder onlangse items</string>
   <string name="menu_clear_queue">Vee waglys uit</string>
-  <string name="menu_save_queue">Stoor speellys</string>
   <string name="menu_equalizer">Klankmenger</string>
   <string name="add_to_playlist">Voeg by speellys</string>
   <string name="add_to_queue">Voeg by waglys</string>
@@ -120,6 +119,8 @@
   <string name="settings_show_lyrics_summary">Vir liedjies wat \'n srt lêer het</string>
   <string name="settings_shake_to_play">Skud</string>
   <string name="settings_shake_to_play_summary">Skud jou toestel om volgende liedjie te speel</string>
+  <string name="settings_lockscreen_album_art">Slotskerm foto album kuns</string>
+  <string name="settings_lockscreen_album_art_summary">Vervang slotskerm agtergrond foto album kuns</string>
   <string name="app_widget_small">Musiek: 4 \u00d7 1</string>
   <string name="app_widget_large">Musiek: 4 \u00d7 2</string>
   <string name="app_widget_large_alt">Musiek: 4 \u00d7 2 (alternatief)</string>
