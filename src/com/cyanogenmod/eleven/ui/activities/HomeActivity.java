@@ -116,7 +116,7 @@ public class HomeActivity extends SlidingPanelActivity implements
 
             // figure which panel we are on and update the status bar
             mBrowsePanelActive = (getCurrentPanel() == Panel.Browse);
-            updateStatusBarColor();
+
         }
 
         // if intent wasn't UI related, process it as a audio playback request
