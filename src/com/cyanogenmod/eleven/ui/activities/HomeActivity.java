@@ -209,20 +209,17 @@ public class HomeActivity extends SlidingPanelActivity implements
                     return bitmap;
                 }
                 @Override
-<<<<<<< HEAD
-                protected void onPostExecute(Integer color) {
+/*                protected void onPostExecute(Integer color) {
                     if (color == Color.TRANSPARENT) {
                         color = getResources().getColor(R.color.primary_dark);
                     }
                     updateStatusBarColor(color);
-		    updateNavigationBarColor(color);
-=======
+		    updateNavigationBarColor(color);*/
                 protected void onPostExecute(BitmapWithColors bmc) {
                     updateEqualizerColor(bmc != null
                             ? bmc.getVibrantColor() : Color.TRANSPARENT);
                     updateStatusBarColor(bmc != null
                             ? bmc.getVibrantDarkColor() : Color.TRANSPARENT);
->>>>>>> upstream/cm-12.1
                 }
             }.execute();
         }
