@@ -62,7 +62,6 @@ import com.cyanogenmod.eleven.utils.MusicUtils;
 import com.cyanogenmod.eleven.utils.NavUtils;
 import com.cyanogenmod.eleven.utils.PreferenceUtils;
 import com.cyanogenmod.eleven.widgets.BrowseButton;
-import com.cyanogenmod.eleven.widgets.EqualizerView;
 import com.cyanogenmod.eleven.widgets.LoadingEmptyContainer;
 import com.cyanogenmod.eleven.widgets.NoResultsContainer;
 import com.cyanogenmod.eleven.widgets.PlayPauseProgressButton;
@@ -70,6 +69,7 @@ import com.cyanogenmod.eleven.widgets.QueueButton;
 import com.cyanogenmod.eleven.widgets.RepeatButton;
 import com.cyanogenmod.eleven.widgets.RepeatingImageButton;
 import com.cyanogenmod.eleven.widgets.ShuffleButton;
+import com.cyanogenmod.eleven.widgets.VisualizerView;
 
 import java.lang.ref.WeakReference;
 
@@ -135,8 +135,8 @@ public class AudioPlayerFragment extends Fragment implements ServiceConnection,
     // Total time
     private TextView mTotalTime;
 
-    // Equalizer View
-    private EqualizerView mEqualizerView;
+    // Visualizer View
+    private VisualizerView mVisualizerView;
 
     // Equalizer Gradient
     private View mEqualizerGradient;
@@ -199,8 +199,8 @@ public class AudioPlayerFragment extends Fragment implements ServiceConnection,
 
         initPlaybackControls();
 
-        mEqualizerView = (EqualizerView) mRootView.findViewById(R.id.equalizerView);
-        mEqualizerView.initialize(getActivity());
+        mVisualizerView = (VisualizerView) mRootView.findViewById(R.id.visualizerView);
+        mVisualizerView.initialize(getActivity());
         mEqualizerGradient = mRootView.findViewById(R.id.equalizerGradient);
 
         mLyricsText = (TextView) mRootView.findViewById(R.id.audio_player_lyrics);
@@ -485,10 +485,8 @@ public class AudioPlayerFragment extends Fragment implements ServiceConnection,
             mQueueEmpty.hideAll();
             if (PreferenceUtils.getInstance(getActivity()).getShowVisualizer()) {
                 mEqualizerGradient.setVisibility(View.VISIBLE);
-                mEqualizerView.setEnabled(true);
             } else {
                 mEqualizerGradient.setVisibility(View.GONE);
-                mEqualizerView.setEnabled(false);
             }
             mAddToPlaylistButton.setVisibility(View.VISIBLE);
         }
@@ -743,20 +741,24 @@ public class AudioPlayerFragment extends Fragment implements ServiceConnection,
 
     @Override
     public void onBeginSlide() {
-        mEqualizerView.setVisible(false);
+        mVisualizerView.setVisible(false);
     }
 
     @Override
     public void onFinishSlide(SlidingPanelActivity.Panel visiblePanel) {
-        mEqualizerView.setVisible(visiblePanel == SlidingPanelActivity.Panel.MusicPlayer);
+        setVisualizerVisible(visiblePanel == SlidingPanelActivity.Panel.MusicPlayer);
     }
 
-    public void onWindowFocusChanged(boolean hasFocus) {
-        mEqualizerView.setVisible(hasFocus);
+    public void setVisualizerVisible(boolean visible) {
+        if (visible && PreferenceUtils.getInstance(getActivity()).getShowVisualizer()) {
+            mVisualizerView.setVisible(true);
+        } else {
+            mVisualizerView.setVisible(false);
+        }
     }
 
-    public void updateVisualizerColor(int color) {
-        mEqualizerView.setColor(color);
+    public void setVisualizerColor(int color) {
+        mVisualizerView.setColor(color);
     }
 
     /**
@@ -817,7 +819,7 @@ public class AudioPlayerFragment extends Fragment implements ServiceConnection,
                 audioPlayerFragment.updateNowPlayingInfo();
                 audioPlayerFragment.dismissPopupMenu();
             } else if (action.equals(MusicPlaybackService.PLAYSTATE_CHANGED)) {
-                audioPlayerFragment.mEqualizerView.setPlaying(MusicUtils.isPlaying());
+                audioPlayerFragment.mVisualizerView.setPlaying(MusicUtils.isPlaying());
                 // Set the play and pause image
                 audioPlayerFragment.mPlayPauseProgressButton.getPlayPauseButton().updateState();
             } else if (action.equals(MusicPlaybackService.REPEATMODE_CHANGED)
