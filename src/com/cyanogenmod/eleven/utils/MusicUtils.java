@@ -161,7 +161,6 @@ public final class MusicUtils {
             if (mCallback != null) {
                 mCallback.onServiceConnected(className, service);
             }
-            MusicUtils.initPlaybackServiceWithSettings(mContext);
         }
 
         @Override
@@ -276,16 +275,6 @@ public final class MusicUtils {
             }
         } catch (final RemoteException ignored) {
         }
-    }
-
-    /**
-     * Initialize playback service with values from Settings
-     */
-    public static void initPlaybackServiceWithSettings(final Context context) {
-        MusicUtils.setShakeToPlayEnabled(
-                PreferenceUtils.getInstance(context).getShakeToPlay());
-        MusicUtils.setShowAlbumArtOnLockscreen(
-                PreferenceUtils.getInstance(context).getShowAlbumArtOnLockscreen());
     }
 
     /**
@@ -1794,3 +1783,4 @@ public final class MusicUtils {
         }
     }
 }
+

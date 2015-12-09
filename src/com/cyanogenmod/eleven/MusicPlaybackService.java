@@ -652,6 +652,9 @@ public class MusicPlaybackService extends Service {
         mPlayer = new MultiPlayer(this);
         mPlayer.setHandler(mPlayerHandler);
 
+        // Initialize app settings options
+        setupSettingsOptions();
+
         // Initialize the intent filter and each action
         final IntentFilter filter = new IntentFilter();
         filter.addAction(SERVICECMD);
@@ -728,6 +731,11 @@ public class MusicPlaybackService extends Service {
             }
         });
         mSession.setFlags(MediaSession.FLAG_HANDLES_TRANSPORT_CONTROLS);
+    }
+
+    private void setupSettingsOptions() {
+        setShakeToPlayEnabled(PreferenceUtils.getInstance(this).getShakeToPlay());
+        setLockscreenAlbumArt(PreferenceUtils.getInstance(this).getShowAlbumArtOnLockscreen());
     }
 
     /**
