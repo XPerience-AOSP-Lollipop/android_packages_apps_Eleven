@@ -39,15 +39,15 @@
     <item quantity="other"><xliff:g id="number" example="27">%d</xliff:g> เพลงถูกเพิ่มมายังรายการเพลง</item>
   </plurals>
   <plurals name="NNNtracksfromplaylist">
-    <item quantity="other"><xliff:g id="number" example="27">%d</xliff:g> เพลงถูกรำออกจากรายการเพลง</item>
+    <item quantity="other"><xliff:g id="number" example="27">%d</xliff:g> เพลงถูกลบออกจากรายการเพลง</item>
   </plurals>
   <plurals name="NNNtrackstoqueue">
-    <item quantity="other"><xliff:g id="number" example="27">%d</xliff:g> เพลงอยู่ในคิว</item>
+    <item quantity="other">มี <xliff:g id="number" example="27">%d</xliff:g> เพลงถูกเพิ่มอยู่ในคิว</item>
   </plurals>
   <plurals name="NNNtrackstofavorites">
-    <item quantity="other"><xliff:g id="number" example="27">%d</xliff:g> เพลง ถูกเพิ่มไปยังรายการโปรด</item>
+    <item quantity="other"><xliff:g id="number" example="27">%d</xliff:g> เพลงถูกเพิ่มไปยังรายการโปรด</item>
   </plurals>
   <plurals name="NNNtracksdeleted">
-    <item quantity="other"><xliff:g id="songs_to_delete">%d</xliff:g> เพลง ถูกลบ</item>
+    <item quantity="other"><xliff:g id="songs_to_delete">%d</xliff:g> เพลงถูกลบ</item>
   </plurals>
 </resources>
